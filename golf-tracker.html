@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golf Spending Tracker 2026</title>
+<title>Golf Spending Tracker</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f4f0; color: #1a1a1a; min-height: 100vh; }
@@ -96,7 +96,7 @@
   <span>⛳</span>
   <div>
     <h1>Golf Spending Tracker</h1>
-    <div style="font-size:.8rem;opacity:.75">2026 Season</div>
+    <div style="font-size:.8rem;opacity:.75" id="season-label"></div>
   </div>
   <div style="margin-left:auto;font-size:.85rem;opacity:.8" id="session-count"></div>
 </header>
@@ -632,6 +632,9 @@ function exportCSV() {
 })();
 
 // ── Init ──────────────────────────────────────────────────────────────────────
+const CURRENT_YEAR = new Date().getFullYear();
+document.getElementById('season-label').textContent = `${CURRENT_YEAR} Season`;
+document.querySelector('title').textContent = `Golf Spending Tracker ${CURRENT_YEAR}`;
 document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
 renderAll();
 </script>
